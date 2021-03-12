@@ -23,7 +23,7 @@ def consolidate_cart(cart)
     new_item = item_data
     new_item[:count]=1 
     item_in_cart = find_item_by_name_in_collection(item_data[:item], consolidated_cart)
-    if item_in_cart 
+    if item_in_cart.empty?  
   end
   consolidated_cart
 end
