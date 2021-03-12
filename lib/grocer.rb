@@ -22,16 +22,8 @@ def consolidate_cart(cart)
   cart.each do |item_data|
     new_item = item_data
     new_item[:count]=1 
-    consolidated_cart.each do |new_item_data|
-      binding.pry 
-      if new_item_data[:item] == item_data[:item]
-        new_item_data[:count]++
-        binding.pry
-      else
-        consolidated_cart << new_item
-        binding.pry
-      end
-    end 
+    item_in_cart = find_item_by_name_in_collection(item_data[:item], consolidated_cart)
+    if item_in_cart 
   end
   consolidated_cart
 end
