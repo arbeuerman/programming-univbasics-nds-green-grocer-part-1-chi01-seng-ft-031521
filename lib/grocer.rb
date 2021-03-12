@@ -22,7 +22,7 @@ def consolidate_cart(cart)
   cart.each do |item_data|
     binding.pry    
     item_in_cart = find_item_by_name_in_collection(item_data[:item], consolidated_cart)
-    if item_in_cart.empty? 
+    if item_in_cart == nil
       new_item = item_data
       new_item[:count]=1
       consolidated_cart << new_item
