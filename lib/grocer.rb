@@ -20,7 +20,6 @@ def consolidate_cart(cart)
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
   consolidated_cart = []
   cart.each do |item_data|
-    binding.pry    
     item_in_cart = find_item_by_name_in_collection(item_data[:item], consolidated_cart)
     if item_in_cart == nil
       new_item = item_data
