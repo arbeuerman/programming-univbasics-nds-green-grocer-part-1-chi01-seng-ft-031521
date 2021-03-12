@@ -20,18 +20,24 @@ def consolidate_cart(cart)
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
   consolidated_cart = []
   cart.each do |item_data|
-    new_item = item_data
-    new_item[:count]=1 
+    binding.pry    
     item_in_cart = find_item_by_name_in_collection(item_data[:item], consolidated_cart)
-    if item_in_cart.empty?  
+    if item_in_cart.empty? 
+      new_item = item_data
+      new_item[:count]=1
+      consolidated_cart << new_item
+      binding.pry 
+    else
+      item_in_cart[:count]++
+      binding.pry 
+    end 
   end
+  binding.pry 
   consolidated_cart
 end
 
 grocery_shelf = [
-  { :item => "CANNED BEANS", :price => 3.00, :clearance => true },
   { :item => "CANNED CORN", :price => 2.50, :clearance => false },
-  { :item => "SALSA", :price => 1.50, :clearance => false },
   { :item => "TORTILLAS", :price => 2.00, :clearance => false },
   { :item => "HOT SAUCE", :price => 1.75, :clearance => false },
   { :item => "TORTILLAS", :price => 2.00, :clearance => false }
