@@ -22,8 +22,8 @@ def consolidate_cart(cart)
   cart.each do |item_data|
     new_item = item_data
     new_item[:count]=1 
-    binding.pry
     consolidated_cart.each do |new_item_data|
+      binding.pry 
       if new_item_data[:item] == item_data[:item]
         new_item_data[:count]++
         binding.pry
